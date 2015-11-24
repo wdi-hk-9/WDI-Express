@@ -12,7 +12,8 @@ function authenticatedUser(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   } else {
-    return res.json({message: "Please Login"});
+    // https://http.cat/403
+    return res.status(403).json({message: "Please Login"});
   }
 }
 
